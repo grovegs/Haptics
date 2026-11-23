@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src\GroveGames.Haptics\GroveGames.Haptics.csproj" />
+  <Project Path="tests\GroveGames.Haptics.Tests\GroveGames.Haptics.Tests.csproj" />
+</Solution>

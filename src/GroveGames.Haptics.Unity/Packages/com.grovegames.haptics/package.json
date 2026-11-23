@@ -1,0 +1,20 @@
+{
+  "name": "com.grovegames.haptics",
+  "version": "0.0.0",
+  "displayName": "GroveGames.Haptics",
+  "description": "Haptic feedback with intensity, sharpness and duration for .NET and Unity, with iOS and Android devices",
+  "unity": "2022.3",
+  "documentationUrl": "https://github.com/grovegs/Haptics",
+  "changelogUrl": "https://github.com/grovegs/Haptics/releases",
+  "licensesUrl": "https://github.com/grovegs/Haptics/blob/main/LICENSE",
+  "keywords": [
+    "haptics",
+    "vibration",
+    "feedback",
+    "mobile"
+  ],
+  "author": {
+    "name": "Grove Games",
+    "url": "https://github.com/grovegs"
+  }
+}
