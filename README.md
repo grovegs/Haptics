@@ -13,6 +13,7 @@ Haptic feedback with intensity, sharpness and duration for .NET and Unity, with 
 - `Haptic`: intensity, sharpness and duration in one value
 - `IHapticDevice`: the one thing an engine or a platform implements
 - Unity: `UnityHapticDevice` for iOS (Core Haptics) and Android (vibrator), and `UnityHaptic`, a `Haptic` you can edit in the Inspector
+- Test doubles for your own tests: `FakeHapticPlayer` in the editor-only `GroveGames.Haptics.Unity.Testing` assembly
 
 ## .NET
 

@@ -1,0 +1,18 @@
+{
+    "name": "GroveGames.Haptics.Unity.Testing",
+    "rootNamespace": "GroveGames.Haptics.Testing",
+    "references": [
+        "GroveGames.Haptics.Unity"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
