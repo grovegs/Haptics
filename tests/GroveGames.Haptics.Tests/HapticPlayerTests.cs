@@ -11,7 +11,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Constructor_Device_StartsEnabled()
     {
-        var player = new HapticPlayer(new TestHapticDevice(true));
+        var player = new HapticPlayer(new FakeHapticDevice(true));
 
         Assert.True(player.IsEnabled);
     }
@@ -21,7 +21,7 @@ public sealed class HapticPlayerTests
     [InlineData(false)]
     public void IsSupported_Device_ReturnsTheDeviceValue(bool isSupported)
     {
-        var player = new HapticPlayer(new TestHapticDevice(isSupported));
+        var player = new HapticPlayer(new FakeHapticDevice(isSupported));
 
         Assert.Equal(isSupported, player.IsSupported);
     }
@@ -29,7 +29,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_Values_ReachTheDevice()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
 
         player.Play(0.3f, 0.5f, 0.03f);
@@ -43,7 +43,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_ValuesOutOfRange_AreClamped()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
 
         player.Play(2f, -1f, -0.5f);
@@ -58,7 +58,7 @@ public sealed class HapticPlayerTests
     [InlineData(-0.2f)]
     public void Play_NoIntensity_DoesNotReachTheDevice(float intensity)
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
 
         player.Play(intensity, 0.5f, 0.03f);
@@ -69,7 +69,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_PlayerDisabled_DoesNotReachTheDevice()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
         player.SetEnabled(false);
 
@@ -83,7 +83,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_PlayerEnabledAgain_ReachesTheDevice()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
         player.SetEnabled(false);
         player.SetEnabled(true);
@@ -96,7 +96,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_Haptic_PassesItsValues()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
 
         player.Play(new Haptic(0.8f, 0.2f, 0.15f));
@@ -109,7 +109,7 @@ public sealed class HapticPlayerTests
     [Fact]
     public void Play_DisabledHaptic_DoesNotReachTheDevice()
     {
-        var device = new TestHapticDevice(true);
+        var device = new FakeHapticDevice(true);
         var player = new HapticPlayer(device);
 
         player.Play(new Haptic(false, 0.8f, 0.2f, 0.15f));
@@ -118,7 +118,7 @@ public sealed class HapticPlayerTests
         Assert.Equal(0, device.PlayCount);
     }
 
-    private sealed class TestHapticDevice : IHapticDevice
+    private sealed class FakeHapticDevice : IHapticDevice
     {
         private readonly bool _isSupported;
         private int _playCount;
@@ -132,7 +132,7 @@ public sealed class HapticPlayerTests
         public float Sharpness => _sharpness;
         public float Duration => _duration;
 
-        public TestHapticDevice(bool isSupported)
+        public FakeHapticDevice(bool isSupported)
         {
             _isSupported = isSupported;
         }
