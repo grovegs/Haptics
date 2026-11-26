@@ -35,7 +35,7 @@ player.Play(0.8f, 0.8f, 0.15f);
 player.SetEnabled(false);
 ```
 
-- Intensity and sharpness are clamped to 0 to 1, and duration is in seconds.
+- Intensity and sharpness are clamped to 0 to 1, and duration is in seconds, up to 30. A `NaN` intensity plays nothing; a `NaN` sharpness or duration counts as 0.
 - Nothing plays while the player is switched off, for an intensity of zero or less, or for a `Haptic` that is not enabled. `default(Haptic)` is not enabled.
 
 ## Unity
