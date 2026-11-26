@@ -142,6 +142,20 @@ public sealed class HapticPlayerTests
         Assert.Equal(0f, device.Duration);
     }
 
+    [Theory]
+    [InlineData(float.PositiveInfinity)]
+    [InlineData(float.MaxValue)]
+    [InlineData(31f)]
+    public void Play_DurationAboveThirtySeconds_CapsAtThirtySeconds(float duration)
+    {
+        var device = new FakeHapticDevice(true);
+        var player = new HapticPlayer(device);
+
+        player.Play(0.5f, 0.5f, duration);
+
+        Assert.Equal(30f, device.Duration);
+    }
+
     private sealed class FakeHapticDevice : IHapticDevice
     {
         private readonly bool _isSupported;

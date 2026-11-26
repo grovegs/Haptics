@@ -2,6 +2,8 @@
 
 public sealed class HapticPlayer : IHapticPlayer
 {
+    private const float MaxDuration = 30f;
+
     private readonly IHapticDevice _device;
     private bool _isEnabled;
 
@@ -38,6 +40,6 @@ public sealed class HapticPlayer : IHapticPlayer
             return;
         }
 
-        _device.Play(Math.Min(intensity, 1f), sharpness > 0f ? Math.Min(sharpness, 1f) : 0f, duration > 0f ? duration : 0f);
+        _device.Play(Math.Min(intensity, 1f), sharpness > 0f ? Math.Min(sharpness, 1f) : 0f, duration > 0f ? Math.Min(duration, MaxDuration) : 0f);
     }
 }
