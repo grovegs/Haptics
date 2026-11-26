@@ -118,6 +118,30 @@ public sealed class HapticPlayerTests
         Assert.Equal(0, device.PlayCount);
     }
 
+    [Fact]
+    public void Play_NaNIntensity_DoesNotPlay()
+    {
+        var device = new FakeHapticDevice(true);
+        var player = new HapticPlayer(device);
+
+        player.Play(float.NaN, 0.5f, 0.03f);
+
+        Assert.Equal(0, device.PlayCount);
+    }
+
+    [Fact]
+    public void Play_NaNSharpnessAndDuration_PlaysWithZero()
+    {
+        var device = new FakeHapticDevice(true);
+        var player = new HapticPlayer(device);
+
+        player.Play(0.5f, float.NaN, float.NaN);
+
+        Assert.Equal(1, device.PlayCount);
+        Assert.Equal(0f, device.Sharpness);
+        Assert.Equal(0f, device.Duration);
+    }
+
     private sealed class FakeHapticDevice : IHapticDevice
     {
         private readonly bool _isSupported;

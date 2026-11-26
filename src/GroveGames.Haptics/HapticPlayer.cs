@@ -33,11 +33,11 @@ public sealed class HapticPlayer : IHapticPlayer
 
     public void Play(float intensity, float sharpness, float duration)
     {
-        if (!_isEnabled || intensity <= 0f)
+        if (!_isEnabled || !(intensity > 0f))
         {
             return;
         }
 
-        _device.Play(Math.Clamp(intensity, 0f, 1f), Math.Clamp(sharpness, 0f, 1f), Math.Max(0f, duration));
+        _device.Play(Math.Min(intensity, 1f), sharpness > 0f ? Math.Min(sharpness, 1f) : 0f, duration > 0f ? duration : 0f);
     }
 }
