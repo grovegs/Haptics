@@ -11,5 +11,5 @@ Rules for game code that uses this package. They hold in every game. The API is 
 - A haptic is a tunable: it lives in the feature's settings, not as numbers in a controller. Play it with `_haptics.Play(_settings.XHaptic)`.
 - Play a haptic from the controller, at the moment the player sees the result: a click, an upgrade, a reward landing. Never from a service, and never per frame or per hit.
 - The player's haptics preference is `SetEnabled`. Do not check the preference yourself before every `Play`.
-- Do not check `IsSupported` before `Play`; an unsupported device does nothing. Use it only to hide the haptics toggle, and remember that older iPhones report `false` but still play a basic impact.
+- Do not check `IsSupported` before `Play`; an unsupported device does nothing. Use it only to hide the haptics toggle.
 - You cannot verify how a haptic feels. Say so and ask the user to check it on a device.

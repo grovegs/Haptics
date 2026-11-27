@@ -19,6 +19,7 @@ namespace GroveGames.Haptics.Unity
         private readonly Dictionary<long, AndroidJavaObject> _effects;
         private readonly bool _hasAmplitudeControl;
         private bool _isSupported;
+        private bool _hasLoggedPlayError;
 
         public bool IsSupported => _isSupported;
 
@@ -66,7 +67,7 @@ namespace GroveGames.Haptics.Unity
                 return;
             }
 
-            var milliseconds = (long)Mathf.Max(1f, Mathf.Round(duration * 1000f));
+            var milliseconds = duration > 0f ? (long)Mathf.Max(1f, Mathf.Round(duration * 1000f)) : 1L;
 
             try
             {
@@ -81,8 +82,11 @@ namespace GroveGames.Haptics.Unity
             }
             catch (Exception exception)
             {
-                _isSupported = false;
-                Debug.LogException(exception);
+                if (!_hasLoggedPlayError)
+                {
+                    _hasLoggedPlayError = true;
+                    Debug.LogException(exception);
+                }
             }
         }
 

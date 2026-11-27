@@ -5,3 +5,4 @@
 - Register with `builder.AddHapticPlayer()` in the root installer.
 - Haptics do nothing in the Editor. Test them on a device.
 - An asmdef that overrides references lists `GroveGames.Haptics.dll` in its precompiled references.
+- On iOS, iPhone 7 and 7 Plus report `IsSupported` as `false` but still play a basic impact, so a hidden toggle there cannot turn haptics off.
