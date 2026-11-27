@@ -34,6 +34,7 @@ static BOOL GroveGamesHapticsStartEngine(void)
         }
 
         s_engine.playsHapticsOnly = YES;
+        s_engine.autoShutdownEnabled = YES;
         s_engine.stoppedHandler = ^(__unused CHHapticEngineStoppedReason reason) {
             s_engineRunning = NO;
         };

@@ -79,6 +79,9 @@ player.Play(_clickHaptic);
 
 In the Editor and on other platforms the device does nothing and `IsSupported` is `false`. The Android build adds the `VIBRATE` permission to the manifest.
 
+- **iOS**: `IsSupported` means Core Haptics, which supports intensity, sharpness and duration. iPhone 7 and 7 Plus have no Core Haptics but still play a basic impact at the given intensity; older iPhones and iPads play nothing. The haptic engine shuts down when idle and restarts on the next `Play`.
+- **Android**: sharpness is ignored, and intensity sets the amplitude when the vibrator supports it. Up to 32 vibration effects are kept for reuse. If the vibrator cannot be set up, the error is logged and the device is unsupported. If playing throws, the first error is logged and nothing reaches game code.
+
 ## Development
 
 ### Project Structure
