@@ -1,6 +1,6 @@
 {
   "name": "com.grovegames.haptics",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "displayName": "GroveGames.Haptics",
   "description": "Haptic feedback with intensity, sharpness and duration for .NET and Unity, with iOS and Android devices",
   "unity": "2022.3",
