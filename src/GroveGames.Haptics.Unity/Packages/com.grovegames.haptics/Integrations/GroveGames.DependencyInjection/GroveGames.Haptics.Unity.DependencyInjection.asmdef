@@ -3,7 +3,9 @@
     "rootNamespace": "GroveGames.Haptics.Unity",
     "references": [
         "GUID:5db337aee6d342ccbf6dfe03109f4d58",
-        "GUID:680da9f8e63646ddb3c20c2f4045387d"
+        "GUID:680da9f8e63646ddb3c20c2f4045387d",
+        "GroveGames.Haptics.Unity.DeveloperTools",
+        "GroveGames.DeveloperTools.Unity.DependencyInjection"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,0 +1,19 @@
+{
+    "name": "GroveGames.Haptics.Unity.DeveloperTools",
+    "rootNamespace": "GroveGames.Haptics.Unity.DeveloperTools",
+    "references": [
+        "GroveGames.Haptics.Unity",
+        "GroveGames.DeveloperTools.Unity"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "GROVEGAMES_DEVELOPERTOOLS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
