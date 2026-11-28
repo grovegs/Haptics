@@ -62,6 +62,8 @@ player.SetEnabled(false);
 
 With [GroveGames.DependencyInjection](https://github.com/grovegs/DependencyInjection) installed, `AddHapticPlayer()` registers `IHapticPlayer` with the device of the current platform. Without it, create the player yourself:
 
+With [GroveGames.DeveloperTools](https://github.com/grovegs/DeveloperTools) installed and `GROVEGAMES_DEVELOPERTOOLS` defined, `AddHapticPlayer()` also registers the Haptics options: intensity, sharpness and duration sliders and a "Play Haptic" action.
+
 ```csharp
 using GroveGames.Haptics;
 using GroveGames.Haptics.Unity;
